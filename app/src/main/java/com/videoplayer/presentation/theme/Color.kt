@@ -1,4 +1,4 @@
-package com.myapplication.ui.theme
+package com.videoplayer.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 
