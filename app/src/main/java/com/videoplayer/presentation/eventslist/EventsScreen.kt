@@ -21,7 +21,7 @@ fun EventsScreen(
     LaunchedEffect(Unit) {
         viewModel.event.collectLatest {
             when (it) {
-                is Event.NavigateToVideo -> {
+                is Action.NavigateToVideo -> {
                     val encodedUrl =
                         withContext(Dispatchers.IO) {
                             URLEncoder.encode(it.videoUrl, StandardCharsets.UTF_8.toString())

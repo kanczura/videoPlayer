@@ -23,7 +23,7 @@ class EventsViewModel @Inject constructor(
     private val _uiState = MutableStateFlow<EventViewState>(EventViewState(isLoading = true))
     val uiState = _uiState.asStateFlow()
 
-    private val _event = MutableSharedFlow<Event>()
+    private val _event = MutableSharedFlow<Action>()
     val event = _event.asSharedFlow()
 
     var job: Job? = null
@@ -70,7 +70,7 @@ class EventsViewModel @Inject constructor(
 
     fun onEventClicked(event: com.videoplayer.domain.model.Event) {
         viewModelScope.launch {
-            _event.emit(Event.NavigateToVideo(event.videoUrl))
+            _event.emit(Action.NavigateToVideo(event.videoUrl))
         }
     }
 }
